@@ -9,7 +9,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const detectedIP = requestIp.getClientIp(req);
-  const {isBotDetected, resultData} = await botDetector(detectedIP)
+  const {isBotDetected, resultData} = await botDetector(detectedIP as string)
   let code = 200
   let message = ""
   if (isBotDetected == false) {
